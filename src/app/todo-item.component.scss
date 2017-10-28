@@ -1,0 +1,55 @@
+@import '../variables.scss';
+
+.todo-item {
+    padding: 1.5rem;
+    background: $c-4;
+    color: black;
+    border-radius: $border-radius;
+    margin-bottom: 1rem;
+    box-shadow: 0px 0px 5px $c-1;
+
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    position: relative;
+
+    > .title {
+        font-weight: 700;
+        font-size: 1.25rem;
+    }
+
+    > .remove {
+        position: absolute;
+        right: -125px;
+        top: 15px;
+    }
+
+    > .details-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        > input {
+            &:checked {
+                & + .details {
+                    transition: max-height .2s ease-out .1, opacity .2s ease-out;
+                    max-height: 40rem;
+                    opacity: 1;
+                }
+            }
+        }
+
+        > .details {
+            transition: max-height .2s ease-in, opacity .2s ease-in .1s;
+            max-height: 0;
+            opacity: 0;
+        }
+    }
+}

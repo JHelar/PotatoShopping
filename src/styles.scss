@@ -1,0 +1,54 @@
+@import './variables.scss';
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    font-size: 100%;
+    font-weight: normal;
+    font-family: $font-serif;
+    background: $c-3;
+    * {
+        box-sizing: border-box;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 75em;
+    margin: 0 auto;
+}
+
+input,
+button {
+    border: 3px solid white;
+    border-radius: $border-radius;
+    background-color: $c-1;
+    color: white;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    padding: .5rem 1rem;
+    cursor: pointer;
+
+    transition: background-color .2s ease-in-out;
+
+    &:hover,
+    &:focus {
+        background-color: #{darken($c-1, 10%)};
+    }
+}

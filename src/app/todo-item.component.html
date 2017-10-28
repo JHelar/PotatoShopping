@@ -1,0 +1,17 @@
+<div class="todo-item">
+    <span class="title">{{item.title}}</span>
+    <input [(ngModel)]="item.done" type="checkbox" value="item.done" (ngModelChange)="Update()" />
+
+    
+    <div class="details-wrapper">
+        <label for="{{item.key}}">Details</label>
+        <input id="{{item.key}}" type="checkbox">
+        <div class="details">
+            <span class="by">{{item.by}}</span>
+            <span class="created">{{item.created}}</span>
+            <span class="updated">{{item.updated}}</span>
+            <span *ngIf="item.done">{{item.doneby}}</span>
+        </div>
+    </div>
+    <button class="remove" *ngIf="item.canedit" (click)="Remove()">Remove</button>
+</div>

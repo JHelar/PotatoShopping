@@ -1,0 +1,3 @@
+<h2>Items</h2>
+<input type="text" id="title" placeholder="Enter new item..." (keyup.enter)="Create()" [(ngModel)]="titleVal"/>
+<todo-item *ngFor="let todo of todos | async" [item]="todo" (onRemove)="Remove($event)"></todo-item> 

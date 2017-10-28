@@ -1,0 +1,14 @@
+<header class="container main-header" [class.moveUp]="(user | async)?.uid">
+  <h1>PotatoShopping</h1>
+  <div *ngIf="!(user | async)?.uid">
+    <a routerLink="/login">Login</a>
+    <a *ngIf="!(user | async)?.uid" routerLink="/register">Register</a>
+  </div>
+  <div *ngIf="(user | async)?.uid" class="user-info">
+    <h2>{{(user | async)?.displayName}}</h2>
+    <button (click)="logout()">Logout</button>
+  </div>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

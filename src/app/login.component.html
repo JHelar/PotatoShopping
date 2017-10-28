@@ -1,0 +1,14 @@
+<div *ngIf="callout.error">
+    {{callout.message}}
+</div>
+<form (ngSubmit)="login()" #loginForm="ngForm">
+    <input name="email" id="email" [(ngModel)]="model.email" #email="ngModel" type="email" placeholder="Email"  required email>
+    <span *ngIf="email.invalid && (email.dirty || email.touched)">
+        Invalid email
+    </span>
+    <input name="password" id="password" [(ngModel)]="model.password" #password="ngModel" type="password" placeholder="Password" required>
+    <span *ngIf="!password.value && (password.dirty || password.touched)">
+        Enter a password
+    </span>
+    <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+</form>
