@@ -1,17 +1,19 @@
-<div class="todo-item">
-    <span class="title">{{item.title}}</span>
-    <input [(ngModel)]="item.done" type="checkbox" value="item.done" (ngModelChange)="Update()" />
-
-    
-    <div class="details-wrapper">
-        <label for="{{item.key}}">Details</label>
-        <input id="{{item.key}}" type="checkbox">
-        <div class="details">
-            <span class="by">{{item.by}}</span>
-            <span class="created">{{item.created}}</span>
-            <span class="updated">{{item.updated}}</span>
-            <span *ngIf="item.done">{{item.doneby}}</span>
+<div class="todo-item-wrapper pos:r">
+    <div class="todo-item">
+        <span class="title">{{item.title}}</span>
+        <a class="show-details" (mouseenter)="showTease = !showDetails" (mouseleave)="showTease = false" (click)="showDetails = !showDetails">Details</a>
+        <div class="d:f a-i:c">
+            <div class="checkbox-wrapper">
+                <input id="{{item.key}}" [(ngModel)]="item.done" type="checkbox" value="item.done" (ngModelChange)="Update()" />
+                <label for="{{item.key}}"><div></div></label>
+            </div>
+            <a class="remove" *ngIf="item.canedit" (click)="Remove()"></a>
         </div>
     </div>
-    <button class="remove" *ngIf="item.canedit" (click)="Remove()">Remove</button>
+    <div class="details pos:a top:0 left:0" [class.show]="showDetails" [class.tease]="showTease">
+        <div class="info">
+            <span class="by">Created by: <strong>{{item.by}}</strong>, <small>At: {{item.created | date:"yy-MM-dd HH:mm"}}</small></span>
+            <span class="updated">Updated by: <strong>{{item.doneby}}</strong> <small>At: {{item.updated | date:"yy-MM-dd HH:mm"}}</small></span>
+        </div>
+    </div>
 </div>

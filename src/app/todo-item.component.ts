@@ -13,7 +13,8 @@ import { ToDo } from './todo';
 export class TodoItemComponent {
     @Input() item: ToDo;
     @Output() onRemove: EventEmitter<ToDo> = new EventEmitter();
-    
+    showDetails = false;
+    showTease = false;
     constructor(
         private afdb: AngularFireDatabase,
         private afauth: AngularFireAuth

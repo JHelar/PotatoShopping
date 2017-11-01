@@ -1,12 +1,14 @@
-<header class="container main-header" [class.moveUp]="(user | async)?.uid">
-  <h1>PotatoShopping</h1>
-  <div *ngIf="!(user | async)?.uid">
-    <a routerLink="/login">Login</a>
-    <a *ngIf="!(user | async)?.uid" routerLink="/register">Register</a>
-  </div>
-  <div *ngIf="(user | async)?.uid" class="user-info">
-    <h2>{{(user | async)?.displayName}}</h2>
-    <button (click)="logout()">Logout</button>
+<header class="main-header" [class.moveUp]="(user | async)?.uid">
+  <div class="container d:f j-c:s-b a-i:c">
+    <h1 class="f:10">PotatoShopping</h1>
+    <div *ngIf="!(user | async)?.uid">
+      <a routerLink="/login">Login</a>
+      <a *ngIf="!(user | async)?.uid" routerLink="/register">Register</a>
+    </div>
+    <div *ngIf="(user | async)?.uid" class="user-info">
+      <h2 class="f:5">{{(user | async)?.displayName}}</h2>
+      <button (click)="logout()">Logout</button>
+    </div>
   </div>
 </header>
 <main>
